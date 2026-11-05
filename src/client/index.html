@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-density="comfortable">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="description" content="TALLY — a calm, private personal finance ledger. Every dollar, accounted for." />
+    <meta name="theme-color" content="#f6f4ee" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>TALLY — Every dollar, accounted for.</title>
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('tally:theme');
+          var density = localStorage.getItem('tally:density');
+          if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          if (theme === 'dark' || theme === 'light' || theme === 'contrast') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+          if (density === 'compact' || density === 'comfortable') {
+            document.documentElement.setAttribute('data-density', density);
+          }
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>This ledger needs JavaScript enabled.</noscript>
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+# TALLY is a private ledger. Nothing here should be indexed.
+User-agent: *
+Disallow: /

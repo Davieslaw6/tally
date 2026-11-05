@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build:client",
+  "outputDirectory": "dist/client",
+  "functions": {
+    "api/[...path].ts": {
+      "maxDuration": 10,
+      "excludeFiles": "node_modules/@electric-sql/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
